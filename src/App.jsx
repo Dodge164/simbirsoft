@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 // import { Button } from 'reactstrap';
-import './App.scss';
+import './App.module.scss';
 
 function App() {
   return (
