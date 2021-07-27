@@ -11,6 +11,7 @@ export default function LeagueListPageContainer() {
   useEffect(async () => {
     const leagueList = await getLeagueList();
     setLeagueListPage(leagueList.competitions);
+    console.log('cmp', leagueList);
   }, []);
 
   const handleClickLeague = (id) => {

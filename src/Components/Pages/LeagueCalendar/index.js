@@ -1,3 +1,3 @@
-import LeagueCalendarPage from './LeagueCalendarPage';
+import LeagueCalendarContainer from './LeagueCalendarContainer';
 
-export default LeagueCalendarPage;
+export default LeagueCalendarContainer;

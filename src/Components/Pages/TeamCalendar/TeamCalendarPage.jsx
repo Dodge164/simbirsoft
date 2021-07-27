@@ -1,20 +1,7 @@
-/* eslint-disable no-console */
-/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
-import { getTeamCalendarPage } from '../../../Api/http';
+import React from 'react';
 
-export default function TeamCalendarPage(props) {
-  const { teamId } = props;
-
-  const [calendarTeamPage, setCalendarTeamPage] = useState([]);
-
-  useEffect(async () => {
-    const calendarTeam = await getTeamCalendarPage(teamId);
-    setCalendarTeamPage(calendarTeam);
-    console.log('teamCalendarPage', calendarTeam);
-  }, []);
-
+export default function TeamCalendarPage({ calendars }) {
   return (
     <>
       {/* <div>Последнее обновление данных: {date}</div> */}
@@ -28,7 +15,7 @@ export default function TeamCalendarPage(props) {
           </tr>
         </thead>
         <tbody>
-          {calendarTeamPage.matches?.map((team) => (
+          {calendars?.map((team) => (
             <tr key={team?.id}>
               <td>{team?.status}</td>
               <td>{team.homeTeam.name}</td>

@@ -1,24 +1,8 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
-import { getLeagueCalendarPage } from '../../../Api/http';
+import React from 'react';
 
-export default function LeagueCalendarPage(props) {
-  const { leagueId } = props;
-
-  const [calendarLeaguePage, setCalendarLeaguePage] = useState([]);
-
-  useEffect(async () => {
-    const calendarLeague = await getLeagueCalendarPage(leagueId);
-    setCalendarLeaguePage(calendarLeague);
-    const msUTC = Date.parse(calendarLeaguePage.lastUpdated);
-    // console.log('date', msUTC);
-    const date = new Date(msUTC);
-    // console.log('date', date);
-    // console.log('leagueCalendarPage', calendarLeague);
-  }, []);
-
+export default function LeagueCalendarPage({ calendars }) {
   return (
     <>
       {/* <div>Последнее обновление данных: {date}</div> */}
@@ -31,7 +15,7 @@ export default function LeagueCalendarPage(props) {
           </tr>
         </thead>
         <tbody>
-          {calendarLeaguePage.seasons?.map((league) => (
+          {calendars?.map((league) => (
             <tr key={league?.id}>
               <td>{league?.id}</td>
               <td>{league.startDate}</td>
