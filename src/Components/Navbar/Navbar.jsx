@@ -47,16 +47,6 @@ function Navbar() {
               Team List
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/league-calendar">
-              League Calendar
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/team-calendar">
-              Team Calendar
-            </NavLink>
-          </li>
         </ul>
       </div>
     </nav>

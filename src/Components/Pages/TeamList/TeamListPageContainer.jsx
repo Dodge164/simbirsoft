@@ -12,7 +12,6 @@ export default function TeamListPageContainer() {
   }, []);
 
   const handleClickTeam = (id) => {
-    console.log('id', id);
     history.push(`/team-calendar/${id}`);
   };
 

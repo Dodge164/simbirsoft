@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
@@ -20,17 +21,19 @@ export default function TeamCalendarPage(props) {
       <table className="table table-hover">
         <thead>
           <tr>
-            <th scope="col">id</th>
-            <th scope="col">Дата начала</th>
-            <th scope="col">Дата окончания</th>
+            <th scope="col">Статус</th>
+            <th scope="col">Команда хозяев</th>
+            <th scope="col">Команда гостей</th>
+            <th scope="col">Дата события</th>
           </tr>
         </thead>
         <tbody>
-          {calendarTeamPage.seasons?.map((team) => (
+          {calendarTeamPage.matches?.map((team) => (
             <tr key={team?.id}>
-              <td>{team?.id}</td>
-              <td>{team.startDate}</td>
-              <td>{team.endDate}</td>
+              <td>{team?.status}</td>
+              <td>{team.homeTeam.name}</td>
+              <td>{team.awayTeam.name}</td>
+              <td>{team.utcDate.slice(0, 10)}</td>
             </tr>
           ))}
         </tbody>
