@@ -1,3 +1,3 @@
-import LeagueListPage from './LeagueListPage';
+import LeagueListContainer from './LeagueListContainer';
 
-export default LeagueListPage;
+export default LeagueListContainer;

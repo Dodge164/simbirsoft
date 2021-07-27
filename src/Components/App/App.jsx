@@ -1,25 +1,41 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable object-curly-newline */
 import React from 'react';
+import './app.scss';
+
 import { Switch, Route } from 'react-router-dom';
 import { Container } from 'reactstrap';
-import Header from '../Header/Header';
-import LeagueCalendarPage from '../Pages/LeagueCalendar';
-import LeagueListPage from '../Pages/LeagueList';
-import TeamCalendarPage from '../Pages/TeamCalendar';
-import TeamListPage from '../Pages/TeamList';
+import Navbar from '../Navbar/Navbar';
+import TeamCalendarPageContainer from '../Pages/TeamCalendar';
+import TeamListContainer from '../Pages/TeamList';
+import LeagueListContainer from '../Pages/LeagueList';
+import LeagueCalendarContainer from '../Pages/LeagueCalendar';
+import Home from '../Pages/Home';
 
 function App() {
   return (
     <Switch>
       <>
-        <Header />
+        <Navbar />
 
         <Container>
-          <Route exact path="/league-list" component={LeagueListPage} />
-          <Route exact path="/team-list" component={TeamListPage} />
-          <Route exact path="/league-calendar" component={LeagueCalendarPage} />
-          <Route exact path="/team-calendar" component={TeamCalendarPage} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/league-list" component={LeagueListContainer} />
+          <Route exact path="/team-list" component={TeamListContainer} />
+          <Route
+            path="/league-calendar/:id"
+            render={({ match }) => {
+              const { id } = match.params;
+              return <LeagueCalendarContainer leagueId={id} />;
+            }}
+          />
+          <Route
+            path="/team-calendar/:id"
+            render={({ match }) => {
+              const { id } = match.params;
+              return <TeamCalendarPageContainer teamId={id} />;
+            }}
+          />
         </Container>
       </>
     </Switch>
