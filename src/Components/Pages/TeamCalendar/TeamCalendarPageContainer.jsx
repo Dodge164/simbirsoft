@@ -2,17 +2,26 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import { getTeamCalendarPage } from '../../../Api/http';
+import Loading from '../../Loading/Loading';
 import TeamCalendarPage from './TeamCalendarPage';
 
 export default function TeamCalendarPageContainer({ teamId }) {
-  console.log('teid', teamId);
   const [teamCalendarPage, setTeamCalendarPage] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(async () => {
     const calendarTeam = await getTeamCalendarPage(teamId);
-    console.log('tc', calendarTeam);
     setTeamCalendarPage(calendarTeam);
+    setLoading(false);
   }, []);
 
-  return <TeamCalendarPage calendars={teamCalendarPage.matches} />;
+  return (
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <TeamCalendarPage calendars={teamCalendarPage.matches} />
+      )}
+    </>
+  );
 }
