@@ -1,3 +1,3 @@
-import TeamListPage from './TeamListPage';
+import TeamListPageContainer from './TeamListPageContainer';
 
-export default TeamListPage;
+export default TeamListPageContainer;
