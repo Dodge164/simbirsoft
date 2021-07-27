@@ -1,3 +1,3 @@
-import TeamCalendarPage from './TeamCalendarPage';
+import TeamCalendarPageContainer from './TeamCalendarPageContainer';
 
-export default TeamCalendarPage;
+export default TeamCalendarPageContainer;

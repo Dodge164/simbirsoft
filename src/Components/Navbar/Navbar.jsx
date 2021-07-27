@@ -31,13 +31,6 @@ function Navbar() {
         className={cn('navbar-collapse collapse', { show: burgerState })}>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <NavLink className="nav-link active" to="/" exact>
-              Football DB
-              <span className="sr-only" />
-            </NavLink>
-          </li>
-
-          <li className="nav-item">
             <NavLink className="nav-link" to="/league-list">
               League List
             </NavLink>
@@ -45,16 +38,6 @@ function Navbar() {
           <li className="nav-item">
             <NavLink className="nav-link" to="/team-list">
               Team List
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/league-calendar">
-              League Calendar
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/team-calendar">
-              Team Calendar
             </NavLink>
           </li>
         </ul>

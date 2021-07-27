@@ -1,29 +1,16 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable import/order */
-/* eslint-disable react/jsx-closing-bracket-location */
-import React, { useState, useEffect } from 'react';
-import { getLeagueList } from '../../../Api/http';
-import { useHistory } from 'react-router-dom';
+/* eslint-disable react/prop-types */
+import React from 'react';
 
-export default function LeaguePageApp() {
-  const history = useHistory();
-  // eslint-disable-next-line no-unused-vars
-  const [leagueListPage, setLeagueListPage] = useState([]);
-
-  useEffect(async () => {
-    const leagueList = await getLeagueList();
-    setLeagueListPage(leagueList.competitions);
-  }, []);
-
-  const handleClickLeague = (id) => history.push(`/league-calendar/${id}`);
-
-  console.log('LeagueListPage', leagueListPage);
+export default function LeagueListPage({ competitions, onClickLeague }) {
   return (
     <>
       <div>
         На текущем аккаунте для более подробного просмотра доступны только
-        <p>UEFA Champions League</p>
-        <p>European Championship</p>
+        <ul>
+          <li>UEFA Champions League</li>
+          <li>European Championship</li>
+          <li>FIFA World Cup</li>
+        </ul>
       </div>
       <table className="table table-hover">
         <thead>
@@ -37,14 +24,14 @@ export default function LeaguePageApp() {
           </tr>
         </thead>
         <tbody>
-          {leagueListPage?.map((item) => (
-            <tr key={item?.id} onClick={() => handleClickLeague(item?.id)}>
-              <td>{item?.id}</td>
-              <td>{item.name}</td>
-              <td>{item.area.name}</td>
-              <td>{item.currentSeason?.startDate}</td>
-              <td>{item.currentSeason?.endDate}</td>
-              <td>{item.lastUpdated}</td>
+          {competitions?.map((league) => (
+            <tr key={league?.id} onClick={() => onClickLeague(league?.id)}>
+              <td>{league?.id}</td>
+              <td>{league.name}</td>
+              <td>{league.area.name}</td>
+              <td>{league.currentSeason?.startDate}</td>
+              <td>{league.currentSeason?.endDate}</td>
+              <td>{league.lastUpdated.slice(0, 10)}</td>
             </tr>
           ))}
         </tbody>

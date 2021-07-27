@@ -25,7 +25,7 @@ export default function TeamListPage({ teams, onClickTeam }) {
             <td>{team.area.name}</td>
             <td>{team.address}</td>
             <td>{team.area.name}</td>
-            <td>{team.lastUpdated}</td>
+            <td>{team.lastUpdated.slice(0, 10)}</td>
           </tr>
         ))}
       </tbody>
