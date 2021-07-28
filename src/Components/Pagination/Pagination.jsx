@@ -11,8 +11,9 @@ export default function Pagination({
   onNextClick,
   onPreviousClick,
 }) {
+  const path = window.location.pathname;
   const pageNumbers = [];
-
+  console.log('url', window.location);
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
@@ -23,7 +24,7 @@ export default function Pagination({
         <Link
           className="page-link"
           onClick={onPreviousClick}
-          to="/league-list"
+          to={path}
           aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
         </Link>
@@ -35,7 +36,7 @@ export default function Pagination({
               itemsPerPage={itemsPerPage}
               totalItems={totalItems}
               className="page-link"
-              to="/league-list"
+              to={path}
               onClick={() => paginate(number)}>
               {number}
             </Link>
@@ -46,7 +47,7 @@ export default function Pagination({
         <Link
           className="page-link"
           onClick={onNextClick}
-          to="/league-list"
+          to={path}
           aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
         </Link>

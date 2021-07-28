@@ -7,13 +7,13 @@ import React from 'react';
 import s from './Searching.module.scss';
 // import TeamListPageContainer from '../Pages/TeamList/TeamListContainer';
 
-export default function Searching({ onChange1, searchValue }) {
+export default function Searching({ onChange1, searchValue, type = 'search' }) {
   return (
     <div className={s.searchMargin}>
       <form className="d-flex">
         <input
+          type={type}
           className="form-control me-2"
-          type="search"
           placeholder="Search"
           value={searchValue}
           aria-label="Search"

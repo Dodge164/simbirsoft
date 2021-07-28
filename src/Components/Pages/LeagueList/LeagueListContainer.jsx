@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-console */
@@ -39,8 +40,17 @@ export default function LeagueListPageContainer() {
     setCurrentPage((prev) => prev - 1);
   };
 
-  const filterLeagues = leagueListPage.filter((league) =>
-    league.name.toLowerCase().includes(value.toLowerCase()),
+  const filterLeagues = leagueListPage.filter(
+    (league) =>
+      league.name.toLowerCase().includes(value.toLowerCase()) ||
+      league.area.name.toLowerCase().includes(value.toLowerCase()) ||
+      league.currentSeason?.startDate
+        .toLowerCase()
+        .includes(value.toLowerCase()) ||
+      league.currentSeason?.endDate
+        .toLowerCase()
+        .includes(value.toLowerCase()) ||
+      league.lastUpdated.toLowerCase().includes(value.toLowerCase()),
   );
 
   const lastLeagueIndex = currentPage * leaguesPerPage;

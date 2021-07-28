@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
 import React, { useState, useEffect } from 'react';
@@ -37,8 +38,12 @@ export default function TeamListPageContainer() {
     setCurrentPage((prev) => prev - 1);
   };
 
-  const filterTeams = teamListPage.filter((team) =>
-    team.shortName.toLowerCase().includes(value.toLowerCase()),
+  const filterTeams = teamListPage.filter(
+    (team) =>
+      team.shortName.toLowerCase().includes(value.toLowerCase()) ||
+      team.address.toLowerCase().includes(value.toLowerCase()) ||
+      team.area.name.toLowerCase().includes(value.toLowerCase()) ||
+      team.lastUpdated.toLowerCase().includes(value.toLowerCase()),
   );
 
   const lastTeamIndex = currentPage * teamsPerPage;
