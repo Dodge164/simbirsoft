@@ -1,6 +1,11 @@
 .burger {
   display: flex;
+  margin-right: 1rem;
   @media (min-width: 992px) {
     display: none;
   }
+}
+
+.label {
+  margin-left: 1rem;
 }

@@ -10,7 +10,7 @@ function Navbar() {
   const [burgerState, setBurgerState] = useState(false);
   return (
     <nav className="navbar navbar-dark navbar-expand-lg bg-primary">
-      <Link to="/" className="navbar-brand">
+      <Link to="/" className={cn(`navbar-brand ${s.label}`)}>
         Football App
       </Link>
       <button
