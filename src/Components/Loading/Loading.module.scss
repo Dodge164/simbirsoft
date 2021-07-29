@@ -1,0 +1,12 @@
+.laodingCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: 0 auto;
+  height: calc(100vh - 62px);
+}
+.spinnerBig {
+  width: 4rem !important;
+  height: 4rem !important;
+}

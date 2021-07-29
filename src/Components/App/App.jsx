@@ -11,6 +11,7 @@ import TeamListContainer from '../Pages/TeamList';
 import LeagueListContainer from '../Pages/LeagueList';
 import LeagueCalendarContainer from '../Pages/LeagueCalendar';
 import Home from '../Pages/Home';
+import LeagueTeamsListContainer from '../Pages/LeagueTeamsList/LeagueTeamsListContainer';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/league-list" component={LeagueListContainer} />
           <Route exact path="/team-list" component={TeamListContainer} />
           <Route
+            exact
             path="/league-calendar/:id"
             render={({ match }) => {
               const { id } = match.params;
@@ -30,10 +32,18 @@ function App() {
             }}
           />
           <Route
+            exact
             path="/team-calendar/:id"
             render={({ match }) => {
               const { id } = match.params;
               return <TeamCalendarPageContainer teamId={id} />;
+            }}
+          />
+          <Route
+            path="/league-calendar/:id/teams"
+            render={({ match }) => {
+              const { id } = match.params;
+              return <LeagueTeamsListContainer leagueId={id} />;
             }}
           />
         </Container>
