@@ -33,14 +33,18 @@ function Navbar() {
         className={cn('navbar-collapse collapse', { show: burgerState })}>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <NavLink className="nav-link" to="/league-list">
-              League List
-            </NavLink>
+            <div className={s.burger_link}>
+              <NavLink className="nav-link" to="/league-list">
+                League List
+              </NavLink>
+            </div>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/team-list">
-              Team List
-            </NavLink>
+            <div className={s.burger_link}>
+              <NavLink className={`nav-link ${s.burger_link}`} to="/team-list">
+                Team List
+              </NavLink>
+            </div>
           </li>
         </ul>
       </div>

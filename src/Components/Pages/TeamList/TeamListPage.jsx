@@ -12,7 +12,7 @@ export default function TeamListPage({ teams, onClickTeam }) {
           <th scope="col">Флаг</th>
           <th scope="col">Название</th>
           <th scope="col">Адрес</th>
-          <th scope="col">Принадлежность</th>
+          <th scope="col">Страна</th>
           <th scope="col">Последние события</th>
         </tr>
       </thead>
