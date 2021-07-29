@@ -2,7 +2,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable react/jsx-closing-bracket-location */
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import cn from 'classnames';
 import s from './Navbar.module.scss';
 
@@ -10,7 +10,9 @@ function Navbar() {
   const [burgerState, setBurgerState] = useState(false);
   return (
     <nav className="navbar navbar-dark navbar-expand-lg bg-primary">
-      <div className="navbar-brand">Football App</div>
+      <Link to="/" className="navbar-brand">
+        Football App
+      </Link>
       <button
         onClick={(event) =>
           setBurgerState(event.currentTarget.classList.contains('collapsed'))
