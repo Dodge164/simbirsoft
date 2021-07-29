@@ -10,6 +10,7 @@ const fetchRequest = async (way) => {
     headers: {
       'X-Auth-Token': API_KEY,
       'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     },
   });
   return res.data;
