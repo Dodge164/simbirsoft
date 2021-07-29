@@ -9,8 +9,8 @@ const fetchRequest = async (way) => {
   const res = await axios.get(`${url}${way}`, {
     headers: {
       'X-Auth-Token': API_KEY,
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+      // 'Access-Control-Allow-Origin': '*',
+      // 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     },
   });
   return res.data;
