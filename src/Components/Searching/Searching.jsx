@@ -5,7 +5,6 @@
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
 import s from './Searching.module.scss';
-// import TeamListPageContainer from '../Pages/TeamList/TeamListContainer';
 
 export default function Searching({ onChange1, searchValue, type = 'search' }) {
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable operator-linebreak */
 /* eslint-disable function-paren-newline */
 /* eslint-disable implicit-arrow-linebreak */
@@ -9,7 +10,7 @@ import Pagination from '../../Pagination/Pagination';
 import Searching from '../../Searching/Searching';
 import TeamListPage from './TeamListPage';
 
-export default function TeamListPageContainer() {
+export default function TeamListPageContainer({ teams }) {
   const history = useHistory();
   const [teamListPage, setTeamListPage] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,9 +19,14 @@ export default function TeamListPageContainer() {
   const [teamsPerPage] = useState(10);
 
   useEffect(async () => {
-    const teamList = await getTeamsList();
-    setTeamListPage(teamList.teams);
-    setLoading(false);
+    if (teams) {
+      setTeamListPage(teams);
+      setLoading(false);
+    } else {
+      const teamList = await getTeamsList();
+      setTeamListPage(teamList.teams);
+      setLoading(false);
+    }
   }, []);
 
   const handleClickTeam = (id) => {

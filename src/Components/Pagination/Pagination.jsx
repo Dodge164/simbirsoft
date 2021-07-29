@@ -1,19 +1,21 @@
+/* eslint-disable no-useless-computed-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable no-plusplus */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import cn from 'classnames';
 
 export default function Pagination({
   itemsPerPage,
   totalItems,
+  currentPage,
   paginate,
   onNextClick,
   onPreviousClick,
 }) {
   const path = window.location.pathname;
   const pageNumbers = [];
-  console.log('url', window.location);
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
@@ -31,7 +33,10 @@ export default function Pagination({
       </li>
       {pageNumbers.map((number) => (
         <>
-          <li className="page-item">
+          <li
+            className={cn('page-item', {
+              ['active']: currentPage === number,
+            })}>
             <Link
               itemsPerPage={itemsPerPage}
               totalItems={totalItems}
