@@ -9,6 +9,7 @@ const fetchRequest = async (way) => {
   const res = await axios.get(`${url}${way}`, {
     headers: {
       'X-Auth-Token': API_KEY,
+      'Access-Control-Allow-Origin': '*',
     },
   });
   return res.data;
