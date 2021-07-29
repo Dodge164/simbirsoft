@@ -1,11 +1,11 @@
+/* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-export default function LeagueCalendarPage({ calendars }) {
+export default function LeagueCalendarPage({ calendars, onClickLeagueTeams }) {
   return (
     <>
-      {/* <div>Последнее обновление данных: {date}</div> */}
       <table className="table table-hover">
         <thead>
           <tr>
@@ -16,7 +16,9 @@ export default function LeagueCalendarPage({ calendars }) {
         </thead>
         <tbody>
           {calendars?.map((league) => (
-            <tr key={league?.id}>
+            <tr
+              key={league?.id}
+              onClick={() => onClickLeagueTeams(league?.startDate)}>
               <td>{league?.id}</td>
               <td>{league.startDate}</td>
               <td>{league.endDate}</td>

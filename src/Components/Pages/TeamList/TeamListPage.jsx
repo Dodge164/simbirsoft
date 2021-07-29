@@ -10,7 +10,7 @@ export default function TeamListPage({ teams, onClickTeam }) {
       <thead>
         <tr>
           <th scope="col">Флаг</th>
-          <th scope="col">Имя</th>
+          <th scope="col">Название</th>
           <th scope="col">Адрес</th>
           <th scope="col">Принадлежность</th>
           <th scope="col">Последние события</th>
@@ -22,7 +22,7 @@ export default function TeamListPage({ teams, onClickTeam }) {
             <td>
               <img className={s.crest} src={team.crestUrl} alt="crest" />
             </td>
-            <td>{team.area.name}</td>
+            <td>{team.shortName}</td>
             <td>{team.address}</td>
             <td>{team.area.name}</td>
             <td>{team.lastUpdated.slice(0, 10)}</td>

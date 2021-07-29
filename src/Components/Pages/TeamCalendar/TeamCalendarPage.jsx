@@ -4,7 +4,6 @@ import React from 'react';
 export default function TeamCalendarPage({ calendars }) {
   return (
     <>
-      {/* <div>Последнее обновление данных: {date}</div> */}
       <table className="table table-hover">
         <thead>
           <tr>

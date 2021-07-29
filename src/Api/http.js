@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const queryString = require('query-string');
+
 const API_KEY = process.env.REACT_APP_DB_API_KEY;
 const url = process.env.REACT_APP_FBLDB_URL;
 
@@ -29,6 +31,20 @@ export const getTeamsList = async () => {
 
 export const getTeamCalendarPage = async (teamId) => {
   const data = await fetchRequest(`/teams/${teamId}/matches`);
+  return data;
+};
+
+export const getLeagueTeamsList = async (leagueId) => {
+  const parse = queryString.parse(window.location.search);
+  console.log('111', parse);
+  let path = '';
+  if (parse.season) {
+    path = `/competitions/${leagueId}/teams?season=${parse.season}`;
+  } else {
+    path = `/competitions/${leagueId}/teams`;
+  }
+  const data = await fetchRequest(path);
+
   return data;
 };
 
